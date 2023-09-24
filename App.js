@@ -1,20 +1,63 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  Button,
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <Image
+          source={require("./assets/expo-image.png")}
+          style={styles.image}
+        />
+        <Text style={styles.title}>Workshops</Text>
+        <Text style={styles.subtitle}>Expo React Native</Text>
+      </View>
+      <View style={styles.button}>
+        <Button
+          title="Sample Button"
+          onPress={() => {
+            console.log("No i czego klikasz, jak to nic nie robi");
+          }}
+        />
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff",
+  },
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 25,
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 10,
+    color: "black",
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "gray",
+    marginBottom: 20,
+  },
+  button: {
+    marginTop: "auto",
   },
 });
